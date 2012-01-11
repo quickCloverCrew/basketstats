@@ -1,0 +1,8 @@
+D:\DEV\C#\GIT\basketstats\NBASpider\NBASpider\bin\Debug\HtmlAgilityPack.dll
+D:\DEV\C#\GIT\basketstats\NBASpider\NBASpider\bin\Debug\HtmlAgilityPack.pdb
+D:\DEV\C#\GIT\basketstats\NBASpider\NBASpider\bin\Debug\HtmlAgilityPack.xml
+D:\DEV\C#\GIT\basketstats\NBASpider\NBASpider\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\DEV\C#\GIT\basketstats\NBASpider\NBASpider\bin\Debug\NBASpider.exe
+D:\DEV\C#\GIT\basketstats\NBASpider\NBASpider\bin\Debug\NBASpider.pdb
+D:\DEV\C#\GIT\basketstats\NBASpider\NBASpider\obj\x86\Debug\NBASpider.exe
+D:\DEV\C#\GIT\basketstats\NBASpider\NBASpider\obj\x86\Debug\NBASpider.pdb
