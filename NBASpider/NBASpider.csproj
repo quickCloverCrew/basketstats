@@ -98,6 +98,14 @@
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="lib\HtmlAgilityPack.dll" />
+    <Content Include="lib\HtmlAgilityPack.pdb" />
+    <Content Include="lib\HtmlAgilityPack.XML" />
+    <Content Include="lib\NLog.dll" />
+    <Content Include="lib\NLog.pdb" />
+    <Content Include="lib\NLog.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
