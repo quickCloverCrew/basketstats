@@ -8,6 +8,31 @@ namespace NBASpider.Parsing
 {
     class BRTableParser
     {
+        public string GetTeamInfoBoxCSVData(HtmlNode div)
+        {
+            StringBuilder csvBuilder = new StringBuilder();
+            csvBuilder.AppendLine("Title,Division,Coach,Arena,Attendance");
+
+            string temp = div.Descendants("h1").First().InnerHtml;
+            csvBuilder.Append(temp.Substring(temp.IndexOf(" ") + 1, temp.IndexOf("Roster") - 9) + ",");
+
+            HtmlNode[] links = div.Descendants("a").ToArray();
+            temp = links[3].NextSibling.InnerHtml;
+            csvBuilder.Append(temp.Substring(1, temp.Length - 12) + ",");
+
+            temp = links[5].InnerHtml;
+            csvBuilder.Append(temp + ",");
+
+            HtmlNode[] strongs = div.Descendants("strong").ToArray();
+            temp = strongs[strongs.Length - 2].NextSibling.InnerHtml;
+            csvBuilder.Append(temp.Substring(1, temp.IndexOf("&") - 2) + ",");
+
+            temp = strongs[strongs.Length - 1].NextSibling.InnerHtml;
+            csvBuilder.Append(temp.Substring(1, temp.IndexOf("(") - 2).Replace(",","."));
+
+            return csvBuilder.ToString();
+        }
+
         public string GetTableCSVData(HtmlNode table)
         {
             StringBuilder csvBuilder = new StringBuilder();

@@ -12,16 +12,16 @@ namespace NBASpider
 {
     class NBASpider
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();
+        private static Logger logger = LogManager.GetCurrentClassLogger();       
         private static INBACrawler crawler = new BRNBACrawler();
 
         static void Main(string[] args)
         {
             logger.Info("0. Spider started!");
 
-            logger.Info("1. Getting players info...");
-            new CSVFileWriter("players.csv").Write(crawler.GetPlayersInfo());
-            logger.Info("1. Done.");
+            //logger.Info("1. Getting players info...");
+            //new CSVFileWriter("players.csv").Write(crawler.GetPlayersInfo());
+            //logger.Info("1. Done.");
 
             logger.Info("2. Getting teams info...");
             new CSVFileWriter("teams.csv").Write(crawler.GetTeamsInfo());
