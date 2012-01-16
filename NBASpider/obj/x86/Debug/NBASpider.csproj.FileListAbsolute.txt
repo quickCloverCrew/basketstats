@@ -4,3 +4,15 @@ D:\DEV\C#\Projects\NBASpider\bin\debug\NBASpider.pdb
 D:\DEV\C#\GIT\basketstats\NBASpider\obj\x86\Debug\ResolveAssemblyReference.cache
 D:\DEV\C#\GIT\basketstats\NBASpider\obj\x86\Debug\NBASpider.exe
 D:\DEV\C#\GIT\basketstats\NBASpider\obj\x86\Debug\NBASpider.pdb
+C:\Dev\Git\basketstats\NBASpider\obj\x86\Debug\NBASpider.exe
+C:\Dev\Git\basketstats\NBASpider\obj\x86\Debug\NBASpider.pdb
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\NLog.config
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\NBASpider.exe
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\NBASpider.pdb
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\HtmlAgilityPack.dll
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\NLog.dll
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\HtmlAgilityPack.pdb
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\HtmlAgilityPack.xml
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\NLog.pdb
+C:\Dev\Git\basketstats\NBASpider\bin\Debug\NLog.xml
+C:\Dev\Git\basketstats\NBASpider\obj\x86\Debug\ResolveAssemblyReference.cache
