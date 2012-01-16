@@ -28,7 +28,7 @@ namespace NBASpider.Parsing
             csvBuilder.Append(temp.Substring(1, temp.IndexOf("&") - 2) + ",");
 
             temp = strongs[strongs.Length - 1].NextSibling.InnerHtml;
-            csvBuilder.Append(temp.Substring(1, temp.IndexOf("(") - 2).Replace(",","."));
+            csvBuilder.AppendLine(temp.Substring(1, temp.IndexOf("(") - 2).Replace(",","."));
 
             return csvBuilder.ToString();
         }
