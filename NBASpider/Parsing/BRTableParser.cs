@@ -35,6 +35,8 @@ namespace NBASpider.Parsing
 
         public string GetTableCSVData(HtmlNode table)
         {
+            if (table == null) return String.Empty;
+
             StringBuilder csvBuilder = new StringBuilder();
             StringBuilder lineBuilder = new StringBuilder();
 
