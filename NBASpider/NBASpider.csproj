@@ -63,6 +63,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BO\Arena.cs" />
+    <Compile Include="BO\Coach.cs" />
+    <Compile Include="BO\College.cs" />
+    <Compile Include="BO\Game.cs" />
+    <Compile Include="BO\GamePeriod.cs" />
+    <Compile Include="BO\Injury.cs" />
+    <Compile Include="BO\Player.cs" />
+    <Compile Include="BO\Score.cs" />
+    <Compile Include="BO\Team.cs" />
     <Compile Include="Crawling\BRNBACrawler.cs" />
     <Compile Include="Crawling\INBACrawler.cs" />
     <Compile Include="Crawling\NBACrawlerBase.cs" />
