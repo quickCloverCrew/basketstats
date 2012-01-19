@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 
 using NLog;
-using NBASpider.IO;
+using NBASpider.Out;
 using NBASpider.Crawling;
 
 namespace NBASpider

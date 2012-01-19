@@ -3,39 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NBASpider.BO
+namespace NBASpider.Data
 {
-    class GamePeriod
+    public class GamePeriod
     {
         private byte number;
+        private Game game;
+        private Score score;
+
         public byte Number
         {
             get { return number; }
         }
 
-        private Game game;
-        internal Game Game
+        public Game Game
         {
             get { return game; }
         }
 
-        private Score score;
         public Score Score
         {
             get { return score; }
-            set { score = value; }
         }
 
-        public GamePeriod(Game game, byte number)
-            : this(game, number, 0, 0)
-        {
-        }
-
-        public GamePeriod(Game game, byte number, byte homeTeamScore, byte visitorTeamScore)
+        public GamePeriod(Game game, byte number, Score score)
         {
             this.game = game;
             this.number = number;
-            this.score = new Score(homeTeamScore, visitorTeamScore);
+            this.score = score;
         }
     }
 }

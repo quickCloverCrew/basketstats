@@ -63,20 +63,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BO\Arena.cs" />
-    <Compile Include="BO\Coach.cs" />
-    <Compile Include="BO\College.cs" />
-    <Compile Include="BO\Game.cs" />
-    <Compile Include="BO\GamePeriod.cs" />
-    <Compile Include="BO\Injury.cs" />
-    <Compile Include="BO\Player.cs" />
-    <Compile Include="BO\Score.cs" />
-    <Compile Include="BO\Team.cs" />
+    <Compile Include="Data\Arena.cs" />
+    <Compile Include="Data\Coach.cs" />
+    <Compile Include="Data\College.cs" />
+    <Compile Include="Data\Conference.cs" />
+    <Compile Include="Data\Division.cs" />
+    <Compile Include="Data\Game.cs" />
+    <Compile Include="Data\GamePeriod.cs" />
+    <Compile Include="Data\Injury.cs" />
+    <Compile Include="Data\Player.cs" />
+    <Compile Include="Data\Score.cs" />
+    <Compile Include="Data\Team.cs" />
     <Compile Include="Crawling\BRNBACrawler.cs" />
     <Compile Include="Crawling\INBACrawler.cs" />
     <Compile Include="Crawling\NBACrawlerBase.cs" />
     <Compile Include="Parsing\BRTableParser.cs" />
-    <Compile Include="IO\CSVFileWriter.cs" />
+    <Compile Include="Out\CSVFileWriter.cs" />
     <Compile Include="NBASpider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
