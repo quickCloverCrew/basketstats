@@ -63,21 +63,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\Arena.cs" />
-    <Compile Include="Data\Coach.cs" />
-    <Compile Include="Data\College.cs" />
-    <Compile Include="Data\Conference.cs" />
-    <Compile Include="Data\Division.cs" />
-    <Compile Include="Data\Game.cs" />
-    <Compile Include="Data\GamePeriod.cs" />
-    <Compile Include="Data\Injury.cs" />
-    <Compile Include="Data\Player.cs" />
-    <Compile Include="Data\Score.cs" />
-    <Compile Include="Data\Team.cs" />
+    <Compile Include="Crawling\CrawlingConstants.cs" />
+    <Compile Include="Crawling\NBACOMCrawler.cs" />
+    <Compile Include="Data\FullData.cs" />
+    <Compile Include="Data\Roster\Additional\Arena.cs" />
+    <Compile Include="Data\Roster\Additional\Notations.cs" />
+    <Compile Include="Data\Roster\Additional\PlayerBio.cs" />
+    <Compile Include="Data\Roster\Additional\PlayerRoster.cs" />
+    <Compile Include="Data\Roster\Additional\Positions.cs" />
+    <Compile Include="Data\Stats\StatisticalObject.cs" />
+    <Compile Include="Data\Roster\Coach.cs" />
+    <Compile Include="Data\Roster\Additional\College.cs" />
+    <Compile Include="Data\Roster\Additional\Conference.cs" />
+    <Compile Include="Data\Roster\Additional\Division.cs" />
+    <Compile Include="Data\Schedule\Game.cs" />
+    <Compile Include="Data\Schedule\GamePeriod.cs" />
+    <Compile Include="Data\Roster\Injury.cs" />
+    <Compile Include="Data\Stats\IStatistical.cs" />
+    <Compile Include="Data\Roster\Player.cs" />
+    <Compile Include="Data\Schedule\Score.cs" />
+    <Compile Include="Data\Roster\Team.cs" />
     <Compile Include="Crawling\BRNBACrawler.cs" />
     <Compile Include="Crawling\INBACrawler.cs" />
     <Compile Include="Crawling\NBACrawlerBase.cs" />
-    <Compile Include="Parsing\BRTableParser.cs" />
+    <Compile Include="Parsing\BRParser.cs" />
     <Compile Include="Out\CSVFileWriter.cs" />
     <Compile Include="NBASpider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +126,7 @@
     <Content Include="lib\NLog.pdb" />
     <Content Include="lib\NLog.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -3,38 +3,46 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using NLog;
+using NBASpider.Parsing;
+using HtmlAgilityPack;
+using NBASpider.Data;
+
 namespace NBASpider.Crawling
 {
-    abstract class NBACrawlerBase : INBACrawler
+    public class NBACrawlerBase : INBACrawler
     {
-        public virtual string GetPlayersInfo()
+        protected readonly static Logger logger = LogManager.GetCurrentClassLogger();
+
+        protected FullData data;
+        private INBACrawler preCrawler;
+
+        protected INBACrawler PreCrawler
         {
-            throw new NotImplementedException();
+            get { return preCrawler == null ? new NBACrawlerBase() : preCrawler; }
+            set { preCrawler = value; }
         }
 
-        public virtual string GetTeamsInfo()
+        public NBACrawlerBase()
         {
-            throw new NotImplementedException();
+            data = new FullData();
         }
 
-        public virtual string GetRoster()
+        /// <summary>
+        /// Конструктор для возможности запускать несколько краулеров друг за другом.
+        /// Примерно Декоратор. Только приходится его вручную наследовать :(
+        /// Пока не придумал, как лучше сделать...
+        /// </summary>
+        /// <param name="crawler"></param>
+        public NBACrawlerBase(INBACrawler crawler)
+            : this()
         {
-            throw new NotImplementedException();
+            this.preCrawler = crawler;
         }
 
-        public virtual string GetInjuries()
+        public virtual FullData Crawl()
         {
-            throw new NotImplementedException();
-        }
-
-        public virtual string GetBoxScores()
-        {
-            throw new NotImplementedException();
-        }
-
-        public virtual string GetShedule()
-        {
-            throw new NotImplementedException();
+            return data;
         }
     }
 }

@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 
-namespace NBASpider.Data
+using NBASpider.Data.Roster;
+
+namespace NBASpider.Data.Schedule
 {
     public class Game
     {
@@ -28,9 +31,9 @@ namespace NBASpider.Data
             set { date = value; }
         }
 
-        public List<GamePeriod> Periods
+        public ReadOnlyCollection<GamePeriod> Periods
         {
-            get { return periods; }
+            get { return periods.AsReadOnly(); }
         }
 
         public Score TotalScore
@@ -56,12 +59,12 @@ namespace NBASpider.Data
 
         public Team Winner
         {
-            get 
+            get
             {
-                if (totalScore.Home + totalScore.Visitor == 0) 
+                if (!IsPlayed())
                     return null;
                 else
-                    return totalScore.Home > totalScore.Visitor ? homeTeam : visitorTeam; 
+                    return totalScore.Home > totalScore.Visitor ? homeTeam : visitorTeam;
             }
         }
 
@@ -90,6 +93,11 @@ namespace NBASpider.Data
         public void AddPeriodScore(byte number, Score score)
         {
             periods.Add(new GamePeriod(this, number, score));
+        }
+
+        private bool IsPlayed()
+        {
+            return totalScore.Home + totalScore.Visitor > 0;
         }
     }
 }

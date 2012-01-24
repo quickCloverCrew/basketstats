@@ -7,27 +7,24 @@ using System.IO;
 using NLog;
 using NBASpider.Out;
 using NBASpider.Crawling;
+using NBASpider.Data;
 
 namespace NBASpider
 {
     class NBASpider
     {
-        private static Logger logger = LogManager.GetCurrentClassLogger();       
-        private static INBACrawler crawler = new BRNBACrawler();
+        private static readonly Logger logger = LogManager.GetCurrentClassLogger();
+        private static readonly INBACrawler crawler = new NBACOMCrawler(new BRNBACrawler());
 
         static void Main(string[] args)
         {
-            logger.Info("0. Spider started!");
+            logger.Info("START!");
+            
+            logger.Info("Getting data...");
+            FullData data = crawler.Crawl();
+            logger.Info("Getting data done.");
 
-            //logger.Info("1. Getting players info...");
-            //new CSVFileWriter("players.csv").Write(crawler.GetPlayersInfo());
-            //logger.Info("1. Done.");
-
-            logger.Info("2. Getting teams info...");
-            new CSVFileWriter("teams.csv").Write(crawler.GetTeamsInfo());
-            logger.Info("2. Done.");
-
-            logger.Info("The End. Press Enter to terminate...");
+            logger.Info("DONE! Press Enter to terminate...");
             Console.ReadLine();
         }
     }

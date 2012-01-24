@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NBASpider.Data
+namespace NBASpider.Data.Roster.Additional
 {
     public class Division
     {
@@ -20,10 +20,19 @@ namespace NBASpider.Data
             get { return name; }
         }
 
-        public Division(string name, Conference conf)
+        public Division(string name)
         {
             this.name = name;
-            this.conf = conf;
+            if (name.IndexOf("Southeast") != -1
+                || name.IndexOf("Atlantic") != -1
+                || name.IndexOf("Central") != -1)
+            {
+                this.conf = Conference.EASTERN;
+            }
+            else
+            {
+                this.conf = Conference.WESTERN;
+            }
         }
     }
 }

@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
+using NBASpider.Data;
+
 namespace NBASpider.Crawling
 {
-    interface INBACrawler
+    public interface INBACrawler
     {
-        string GetPlayersInfo();
-        string GetTeamsInfo();
-        string GetRoster();
-        string GetInjuries();
-        string GetBoxScores();
-        string GetShedule();
+        FullData Crawl();
     }
 }

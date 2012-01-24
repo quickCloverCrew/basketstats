@@ -2,12 +2,43 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using NBASpider.Data.Roster;
+using NBASpider.Data.Roster.Additional;
 using HtmlAgilityPack;
 
 namespace NBASpider.Parsing
 {
-    class BRTableParser
+    class BRParser
     {
+        public Team GetTeamInfo(HtmlNode div)
+        {
+            HtmlNode[] links = div.Descendants("a").ToArray();
+
+            string name = div.Descendants("h1").First().InnerHtml;
+            name = name.Substring(name.IndexOf(" ") + 1, name.IndexOf("Roster") - 9);
+
+            string divName = links[3].NextSibling.InnerHtml;
+            divName = divName.Substring(1, divName.Length - 12);
+
+            Team team = new Team(name, new Division(divName));
+
+            string coachName = links[5].InnerHtml;
+            team.Coach = new Coach(coachName, team);
+
+            HtmlNode[] strongs = div.Descendants("strong").ToArray();
+            
+            string arenaName = strongs[strongs.Length - 2].NextSibling.InnerHtml;
+            arenaName = arenaName.Substring(1, arenaName.IndexOf("&") - 2);
+
+            string arenaAttendance = strongs[strongs.Length - 1].NextSibling.InnerHtml;
+            arenaAttendance = arenaAttendance.Substring(1, arenaAttendance.IndexOf("(") - 2).Replace(",", string.Empty);
+
+            team.Arena = new Arena(arenaName, int.Parse(arenaAttendance));
+            
+            return team;
+        }
+
         public string GetTeamInfoBoxCSVData(HtmlNode div)
         {
             StringBuilder csvBuilder = new StringBuilder();

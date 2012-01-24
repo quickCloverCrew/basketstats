@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace NBASpider.Data
+namespace NBASpider.Data.Roster.Additional
 {
-    class College
+    public enum Notations
     {
+        USA, RUS
     }
 }
