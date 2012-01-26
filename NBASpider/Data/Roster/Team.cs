@@ -16,6 +16,7 @@ namespace NBASpider.Data.Roster
         private List<Player> players;
         private Arena arena;
         private List<Injury> injuries;
+        private string nbaComId;
 
         public Division Division
         {
@@ -65,6 +66,12 @@ namespace NBASpider.Data.Roster
         {
             get { return injuries; }
             set { injuries = value; }
+        }
+
+        public string NbaComId
+        {
+            get { return nbaComId; }
+            set { nbaComId = value; }
         }
 
         public Team(string name, Division division)

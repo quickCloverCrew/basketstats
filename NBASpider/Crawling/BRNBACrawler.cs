@@ -35,12 +35,13 @@ namespace NBASpider.Crawling
             logger.Info("Getting teams data...");
             StringBuilder result = new StringBuilder();
             string uri = "/teams/{0}/2012.html";
-            foreach (string teamCode in CrawlingConstants.TEAM_CODES)
+            foreach (string teamCode in CrawlingConstants.TEAM_CODE_TO_NBA_ID.Keys)
             {
                 logger.Info(teamCode + "...");
                 HtmlDocument doc = web.Load(DOMAIN_NAME + String.Format(uri, teamCode), "GET");
                 Team team = parser.GetTeamInfo(doc.GetElementbyId("info_box"));
                 team.ShortName = teamCode;
+                team.NbaComId = CrawlingConstants.TEAM_CODE_TO_NBA_ID[teamCode];
                 data.Teams.Add(team);
             }
             logger.Info("Getting teams done.");

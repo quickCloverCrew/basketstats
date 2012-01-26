@@ -89,6 +89,7 @@
     <Compile Include="Parsing\BRParser.cs" />
     <Compile Include="Out\CSVFileWriter.cs" />
     <Compile Include="NBASpider.cs" />
+    <Compile Include="Parsing\NBACOMParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,6 @@ namespace NBASpider.Data.Roster.Additional
 {
     public enum Positions
     {
-        G, PG, SG, GF, FG, F, SF, PF, FC, CF, C 
+        G, GF, FG, F, FC, CF, C 
     }
 }

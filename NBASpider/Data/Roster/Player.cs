@@ -10,7 +10,7 @@ namespace NBASpider.Data.Roster
 {
     public class Player : StatisticalObject
     {
-        private string name;
+        private string name, href;
         private College college;
         private PlayerBio bio;
         private PlayerRoster roster;
@@ -19,6 +19,12 @@ namespace NBASpider.Data.Roster
         public string Name
         {
             get { return name; }
+        }
+
+        public string Href
+        {
+            get { return href; }
+            set { href = value; }
         }
 
         public College College

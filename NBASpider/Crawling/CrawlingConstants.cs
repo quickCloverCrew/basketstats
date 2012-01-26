@@ -9,6 +9,40 @@ namespace NBASpider.Crawling
     {
         public static readonly string NBACOM_ROSTERS_PAGE = "/teams/teamIndividualLinks.html?title=Team%20Roster&file=roster";
 
+        public static readonly Dictionary<string, string> TEAM_CODE_TO_NBA_ID = new Dictionary<string, string>()
+        {
+            { "PHI", "sixers" },
+            { "NYK", "knicks" },
+            { "BOS", "celtics" },
+            { "TOR", "raptors" },
+            { "NJN", "nets" },
+            { "CHI", "bulls" },
+            { "IND", "pacers" },
+            { "CLE", "cavaliers" },
+            { "MIL", "bucks" },
+            { "DET", "pistons" },
+            { "ORL", "magic" },
+            { "ATL", "hawks" },
+            { "MIA", "heat" },
+            { "CHA", "bobcats" },
+            { "WAS", "wizards" },
+            { "OKC", "thunder" },
+            { "DEN", "nuggets" },
+            { "POR", "blazers" },
+            { "UTA", "jazz" },
+            { "MIN", "timberwolves" },
+            { "LAL", "lakers" },
+            { "LAC", "clippers" },
+            { "PHO", "suns" },
+            { "SAC", "kings" },
+            { "GSW", "warriors" },
+            { "SAS", "spurs" },
+            { "DAL", "mavericks" },
+            { "MEM", "grizzlies" },
+            { "HOU", "rockets" },
+            { "NOH", "hornets" }
+        };
+
         public static readonly List<string> TEAM_CODES = new List<string>() { 
             "PHI", "NYK", "BOS", "TOR", "NJN",
             "CHI", "IND", "CLE", "MIL", "DET",

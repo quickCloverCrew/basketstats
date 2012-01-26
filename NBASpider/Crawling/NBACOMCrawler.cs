@@ -6,6 +6,7 @@ using System.Text;
 using NLog;
 using NBASpider.Parsing;
 using NBASpider.Data;
+using NBASpider.Data.Roster;
 using HtmlAgilityPack;
 
 namespace NBASpider.Crawling
@@ -14,7 +15,7 @@ namespace NBASpider.Crawling
     {
         private readonly string DOMAIN_NAME = "http://www.nba.com";
         private HtmlWeb web = new HtmlWeb();
-        private BRParser parser = new BRParser();
+        private NBACOMParser parser = new NBACOMParser();
 
         public NBACOMCrawler(INBACrawler preCrawler):base(preCrawler) {}
 
@@ -31,6 +32,13 @@ namespace NBASpider.Crawling
         protected void  CrawlPlayers()
         {
             logger.Info("Getting players data...");
+            string uri = "/{0}/roster";
+            foreach (Team team in data.Teams)
+            {
+                logger.Info(team.ShortName + "...");
+                HtmlDocument rosterPage = web.Load(DOMAIN_NAME + String.Format(uri, team.NbaComId), "GET");
+                team.Players = parser.GetPlayersFromRoster(rosterPage, team);
+            }
             logger.Info("Getting players done.");
         }
     }
