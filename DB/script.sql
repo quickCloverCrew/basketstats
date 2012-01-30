@@ -884,3 +884,177 @@ REFERENCES [Dictionary].[Teams] ([id])
 GO
 ALTER TABLE [Stats].[WinsAndLoss] CHECK CONSTRAINT [FK_WinsAndLoss_Teams]
 GO
+/****** Object:  ForeignKey [FK_Teams_Divisions]    Script Date: 01/26/2012 18:34:55 ******/
+ALTER TABLE [Dictionary].[Teams]  WITH CHECK ADD  CONSTRAINT [FK_Teams_Divisions] FOREIGN KEY([division])
+REFERENCES [Dictionary].[Divisions] ([id])
+GO
+ALTER TABLE [Dictionary].[Teams] CHECK CONSTRAINT [FK_Teams_Divisions]
+GO
+/****** Object:  ForeignKey [FK_Injuries_Players]    Script Date: 01/26/2012 18:34:57 ******/
+ALTER TABLE [Physical].[Injuries]  WITH CHECK ADD  CONSTRAINT [FK_Injuries_Players] FOREIGN KEY([player])
+REFERENCES [Dictionary].[Players] ([id])
+GO
+ALTER TABLE [Physical].[Injuries] CHECK CONSTRAINT [FK_Injuries_Players]
+GO
+/****** Object:  ForeignKey [FK_Injuries_Rossters]    Script Date: 01/26/2012 18:34:57 ******/
+ALTER TABLE [Physical].[Injuries]  WITH CHECK ADD  CONSTRAINT [FK_Injuries_Rossters] FOREIGN KEY([rosster])
+REFERENCES [Stats].[Rosters] ([id])
+GO
+ALTER TABLE [Physical].[Injuries] CHECK CONSTRAINT [FK_Injuries_Rossters]
+GO
+/****** Object:  ForeignKey [FK_Advanced_Rossters]    Script Date: 01/26/2012 18:34:58 ******/
+ALTER TABLE [Reports].[Advanced]  WITH CHECK ADD  CONSTRAINT [FK_Advanced_Rossters] FOREIGN KEY([rosster])
+REFERENCES [Stats].[Rosters] ([id])
+GO
+ALTER TABLE [Reports].[Advanced] CHECK CONSTRAINT [FK_Advanced_Rossters]
+GO
+/****** Object:  ForeignKey [FK_AdvancedDetails_Advanced1]    Script Date: 01/26/2012 18:35:04 ******/
+ALTER TABLE [Reports].[AdvancedDetails]  WITH CHECK ADD  CONSTRAINT [FK_AdvancedDetails_Advanced1] FOREIGN KEY([advanced])
+REFERENCES [Reports].[Advanced] ([id])
+GO
+ALTER TABLE [Reports].[AdvancedDetails] CHECK CONSTRAINT [FK_AdvancedDetails_Advanced1]
+GO
+/****** Object:  ForeignKey [FK_AdvancedDetails_Players]    Script Date: 01/26/2012 18:35:04 ******/
+ALTER TABLE [Reports].[AdvancedDetails]  WITH CHECK ADD  CONSTRAINT [FK_AdvancedDetails_Players] FOREIGN KEY([player])
+REFERENCES [Dictionary].[Players] ([id])
+GO
+ALTER TABLE [Reports].[AdvancedDetails] CHECK CONSTRAINT [FK_AdvancedDetails_Players]
+GO
+/****** Object:  ForeignKey [FK_TeamAndOpponent_TeamAndOpponent]    Script Date: 01/26/2012 18:35:05 ******/
+ALTER TABLE [Reports].[TeamAndOpponent]  WITH CHECK ADD  CONSTRAINT [FK_TeamAndOpponent_TeamAndOpponent] FOREIGN KEY([team])
+REFERENCES [Dictionary].[Teams] ([id])
+GO
+ALTER TABLE [Reports].[TeamAndOpponent] CHECK CONSTRAINT [FK_TeamAndOpponent_TeamAndOpponent]
+GO
+/****** Object:  ForeignKey [FK_TeamAndOpponentDetails_TeamAndOpponentDetails]    Script Date: 01/26/2012 18:35:13 ******/
+ALTER TABLE [Reports].[TeamAndOpponentDetails]  WITH CHECK ADD  CONSTRAINT [FK_TeamAndOpponentDetails_TeamAndOpponentDetails] FOREIGN KEY([TeamAndOpponent])
+REFERENCES [Reports].[TeamAndOpponent] ([id])
+GO
+ALTER TABLE [Reports].[TeamAndOpponentDetails] CHECK CONSTRAINT [FK_TeamAndOpponentDetails_TeamAndOpponentDetails]
+GO
+/****** Object:  ForeignKey [FK_TotalDetails_Players]    Script Date: 01/26/2012 18:35:19 ******/
+ALTER TABLE [Reports].[TotalDetails]  WITH CHECK ADD  CONSTRAINT [FK_TotalDetails_Players] FOREIGN KEY([player])
+REFERENCES [Dictionary].[Players] ([id])
+GO
+ALTER TABLE [Reports].[TotalDetails] CHECK CONSTRAINT [FK_TotalDetails_Players]
+GO
+/****** Object:  ForeignKey [FK_TotalDetails_Totals]    Script Date: 01/26/2012 18:35:19 ******/
+ALTER TABLE [Reports].[TotalDetails]  WITH CHECK ADD  CONSTRAINT [FK_TotalDetails_Totals] FOREIGN KEY([total])
+REFERENCES [Reports].[Totals] ([id])
+GO
+ALTER TABLE [Reports].[TotalDetails] CHECK CONSTRAINT [FK_TotalDetails_Totals]
+GO
+/****** Object:  ForeignKey [FK_Totals_Rossters]    Script Date: 01/26/2012 18:35:20 ******/
+ALTER TABLE [Reports].[Totals]  WITH CHECK ADD  CONSTRAINT [FK_Totals_Rossters] FOREIGN KEY([rosster])
+REFERENCES [Stats].[Rosters] ([id])
+GO
+ALTER TABLE [Reports].[Totals] CHECK CONSTRAINT [FK_Totals_Rossters]
+GO
+/****** Object:  ForeignKey [FK_GameScore_Games]    Script Date: 01/26/2012 18:35:21 ******/
+ALTER TABLE [Stats].[GameScore]  WITH CHECK ADD  CONSTRAINT [FK_GameScore_Games] FOREIGN KEY([game])
+REFERENCES [Dictionary].[Games] ([id])
+GO
+ALTER TABLE [Stats].[GameScore] CHECK CONSTRAINT [FK_GameScore_Games]
+GO
+/****** Object:  ForeignKey [FK_PeriodResult_GamePeriods]    Script Date: 01/26/2012 18:35:23 ******/
+ALTER TABLE [Stats].[PeriodScore]  WITH CHECK ADD  CONSTRAINT [FK_PeriodResult_GamePeriods] FOREIGN KEY([gamePeriod])
+REFERENCES [Dictionary].[GamePeriods] ([id])
+GO
+ALTER TABLE [Stats].[PeriodScore] CHECK CONSTRAINT [FK_PeriodResult_GamePeriods]
+GO
+/****** Object:  ForeignKey [FK_PeriodResult_Games]    Script Date: 01/26/2012 18:35:24 ******/
+ALTER TABLE [Stats].[PeriodScore]  WITH CHECK ADD  CONSTRAINT [FK_PeriodResult_Games] FOREIGN KEY([game])
+REFERENCES [Dictionary].[Games] ([id])
+GO
+ALTER TABLE [Stats].[PeriodScore] CHECK CONSTRAINT [FK_PeriodResult_Games]
+GO
+/****** Object:  ForeignKey [FK_PersonalStatisticPerGame_Games]    Script Date: 01/26/2012 18:35:29 ******/
+ALTER TABLE [Stats].[PersonalStatisticPerGame]  WITH CHECK ADD  CONSTRAINT [FK_PersonalStatisticPerGame_Games] FOREIGN KEY([game])
+REFERENCES [Dictionary].[Games] ([id])
+GO
+ALTER TABLE [Stats].[PersonalStatisticPerGame] CHECK CONSTRAINT [FK_PersonalStatisticPerGame_Games]
+GO
+/****** Object:  ForeignKey [FK_PersonalStatisticPerGame_Players]    Script Date: 01/26/2012 18:35:29 ******/
+ALTER TABLE [Stats].[PersonalStatisticPerGame]  WITH CHECK ADD  CONSTRAINT [FK_PersonalStatisticPerGame_Players] FOREIGN KEY([player])
+REFERENCES [Dictionary].[Players] ([id])
+GO
+ALTER TABLE [Stats].[PersonalStatisticPerGame] CHECK CONSTRAINT [FK_PersonalStatisticPerGame_Players]
+GO
+/****** Object:  ForeignKey [FK_PlayerDetails_Players]    Script Date: 01/26/2012 18:35:31 ******/
+ALTER TABLE [Stats].[PlayerPhysicalDetails]  WITH CHECK ADD  CONSTRAINT [FK_PlayerDetails_Players] FOREIGN KEY([player])
+REFERENCES [Dictionary].[Players] ([id])
+GO
+ALTER TABLE [Stats].[PlayerPhysicalDetails] CHECK CONSTRAINT [FK_PlayerDetails_Players]
+GO
+/****** Object:  ForeignKey [FK_RossterDetails_Players]    Script Date: 01/26/2012 18:35:32 ******/
+ALTER TABLE [Stats].[RosterDetails]  WITH CHECK ADD  CONSTRAINT [FK_RossterDetails_Players] FOREIGN KEY([player])
+REFERENCES [Dictionary].[Players] ([id])
+GO
+ALTER TABLE [Stats].[RosterDetails] CHECK CONSTRAINT [FK_RossterDetails_Players]
+GO
+/****** Object:  ForeignKey [FK_RossterDetails_Rossters]    Script Date: 01/26/2012 18:35:32 ******/
+ALTER TABLE [Stats].[RosterDetails]  WITH CHECK ADD  CONSTRAINT [FK_RossterDetails_Rossters] FOREIGN KEY([rosster])
+REFERENCES [Stats].[Rosters] ([id])
+GO
+ALTER TABLE [Stats].[RosterDetails] CHECK CONSTRAINT [FK_RossterDetails_Rossters]
+GO
+/****** Object:  ForeignKey [FK_Rossters_Teams]    Script Date: 01/26/2012 18:35:34 ******/
+ALTER TABLE [Stats].[Rosters]  WITH CHECK ADD  CONSTRAINT [FK_Rossters_Teams] FOREIGN KEY([team])
+REFERENCES [Dictionary].[Teams] ([id])
+GO
+ALTER TABLE [Stats].[Rosters] CHECK CONSTRAINT [FK_Rossters_Teams]
+GO
+/****** Object:  ForeignKey [FK_Rosters_Seasons]    Script Date: 01/26/2012 18:35:34 ******/
+ALTER TABLE [Stats].[Rosters]  WITH CHECK ADD  CONSTRAINT [FK_Rosters_Seasons] FOREIGN KEY([season])
+REFERENCES [Dictionary].[Seasons] ([id])
+GO
+ALTER TABLE [Stats].[Rosters] CHECK CONSTRAINT [FK_Rosters_Seasons]
+GO
+/****** Object:  ForeignKey [FK_Rosters_SeasonStages]    Script Date: 01/26/2012 18:35:34 ******/
+ALTER TABLE [Stats].[Rosters]  WITH CHECK ADD  CONSTRAINT [FK_Rosters_SeasonStages] FOREIGN KEY([seasonStage])
+REFERENCES [Dictionary].[SeasonStages] ([id])
+GO
+ALTER TABLE [Stats].[Rosters] CHECK CONSTRAINT [FK_Rosters_SeasonStages]
+GO
+/****** Object:  ForeignKey [FK_TeamArenas_Arenas]    Script Date: 01/26/2012 18:35:36 ******/
+ALTER TABLE [Stats].[TeamArenas]  WITH CHECK ADD  CONSTRAINT [FK_TeamArenas_Arenas] FOREIGN KEY([arena])
+REFERENCES [Dictionary].[Arenas] ([id])
+GO
+ALTER TABLE [Stats].[TeamArenas] CHECK CONSTRAINT [FK_TeamArenas_Arenas]
+GO
+/****** Object:  ForeignKey [FK_TeamArenas_Teams]    Script Date: 01/26/2012 18:35:36 ******/
+ALTER TABLE [Stats].[TeamArenas]  WITH CHECK ADD  CONSTRAINT [FK_TeamArenas_Teams] FOREIGN KEY([team])
+REFERENCES [Dictionary].[Teams] ([id])
+GO
+ALTER TABLE [Stats].[TeamArenas] CHECK CONSTRAINT [FK_TeamArenas_Teams]
+GO
+/****** Object:  ForeignKey [FK_TeamCoaches_Coachs]    Script Date: 01/26/2012 18:35:37 ******/
+ALTER TABLE [Stats].[TeamCoaches]  WITH CHECK ADD  CONSTRAINT [FK_TeamCoaches_Coachs] FOREIGN KEY([coach])
+REFERENCES [Dictionary].[Coachs] ([id])
+GO
+ALTER TABLE [Stats].[TeamCoaches] CHECK CONSTRAINT [FK_TeamCoaches_Coachs]
+GO
+/****** Object:  ForeignKey [FK_TeamCoaches_Teams]    Script Date: 01/26/2012 18:35:37 ******/
+ALTER TABLE [Stats].[TeamCoaches]  WITH CHECK ADD  CONSTRAINT [FK_TeamCoaches_Teams] FOREIGN KEY([team])
+REFERENCES [Dictionary].[Teams] ([id])
+GO
+ALTER TABLE [Stats].[TeamCoaches] CHECK CONSTRAINT [FK_TeamCoaches_Teams]
+GO
+/****** Object:  ForeignKey [FK_WinsAndLoss_Seasons]    Script Date: 01/26/2012 18:35:39 ******/
+ALTER TABLE [Stats].[WinsAndLoss]  WITH CHECK ADD  CONSTRAINT [FK_WinsAndLoss_Seasons] FOREIGN KEY([season])
+REFERENCES [Dictionary].[Seasons] ([id])
+GO
+ALTER TABLE [Stats].[WinsAndLoss] CHECK CONSTRAINT [FK_WinsAndLoss_Seasons]
+GO
+/****** Object:  ForeignKey [FK_WinsAndLoss_SeasonStages]    Script Date: 01/26/2012 18:35:40 ******/
+ALTER TABLE [Stats].[WinsAndLoss]  WITH CHECK ADD  CONSTRAINT [FK_WinsAndLoss_SeasonStages] FOREIGN KEY([stage])
+REFERENCES [Dictionary].[SeasonStages] ([id])
+GO
+ALTER TABLE [Stats].[WinsAndLoss] CHECK CONSTRAINT [FK_WinsAndLoss_SeasonStages]
+GO
+/****** Object:  ForeignKey [FK_WinsAndLoss_Teams]    Script Date: 01/26/2012 18:35:40 ******/
+ALTER TABLE [Stats].[WinsAndLoss]  WITH CHECK ADD  CONSTRAINT [FK_WinsAndLoss_Teams] FOREIGN KEY([team])
+REFERENCES [Dictionary].[Teams] ([id])
+GO
+ALTER TABLE [Stats].[WinsAndLoss] CHECK CONSTRAINT [FK_WinsAndLoss_Teams]
+GO
